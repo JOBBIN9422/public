@@ -1100,10 +1100,13 @@ static void YsSetPixelFormatARB(HDC hDC)
 	DescribePixelFormat(hDC, pixel_format, sizeof(pfd), &pfd);
 	if (SetPixelFormat(hDC, pixel_format, &pfd) != FALSE)
 	{
+		//create and set palette (taken from YsSetPixelFormat())
 		fsWin32Internal.hPlt = YsCreatePalette(hDC);
 		SelectPalette(hDC, fsWin32Internal.hPlt, FALSE);
 		RealizePalette(hDC);
 		printf("pixel format set successfully - pixel_format: %d, num_formats: %d\n", pixel_format, num_formats);
+		printf("Depth bits:   %d\n", pfd.cDepthBits);
+		printf("Stencil bits: %d\n", pfd.cStencilBits);
 	}
 	else
 	{
