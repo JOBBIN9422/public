@@ -112,7 +112,7 @@ void FsClearEventQueue(void)
 			break;
 		}
 
-	#ifdef WIN32
+	#ifdef _WIN32
 		auto dt=std::chrono::system_clock::now()-t0;
 		if(500<std::chrono::duration_cast<std::chrono::milliseconds>(dt).count())
 		{

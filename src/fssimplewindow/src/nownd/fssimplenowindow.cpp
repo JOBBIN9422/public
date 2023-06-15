@@ -473,7 +473,7 @@ void FsPushOnPaintEvent(void)
 
 void FsSleep(int ms)
 {
-#ifdef WIN32
+#ifdef _WIN32
 	Sleep(ms);
 #else
 	fd_set set;
